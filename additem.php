@@ -1,5 +1,5 @@
 <?php
 
-echo "Form Here";
+var_dump($_POST);
 
 ?>
