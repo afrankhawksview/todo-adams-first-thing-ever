@@ -2,7 +2,13 @@
 
 require 'checklist.php';
 
-var_dump($list)
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ( $method === 'POST') {
+	$list[] = $_POST['itemtoadd'];
+}
+
+var_dump($list, $_POST);
 
 ?>
 
@@ -10,14 +16,14 @@ var_dump($list)
 <form method="post" action="index.php">
 	<?php 
 		foreach ($list as $item) {
-			echo "<input type='checkbox' name='checklist' value='" . $item . "'' checked> " . $item . "<br>";
+			echo "<input type='checkbox' name='checklist' value='" . $item . "'> " . $item . "<br>";
 		} 
 	?>
 	
 	<input type="submit" value="submit">
 </form>
 
-<form method="post" action="additem.php">
+<form method="post" action="index.php">
 	<input type="text" name="itemtoadd">
 	<input type="submit" value="Add Item">
 </form>

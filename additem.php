@@ -1,5 +1,9 @@
 <?php
 
-var_dump($_POST);
+require 'checklist.php';
+
+$list[] = $_POST["name"];
+
+header("/");
 
 ?>
