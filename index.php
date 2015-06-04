@@ -1,12 +1,8 @@
 <?php
 
-$list = array();
+require 'checklist.php';
 
-$list[] = "item1";
-$list[] = "item2";
-$list[] = "item3";
-
-var_dump($list);
+var_dump($list)
 
 ?>
 
