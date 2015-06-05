@@ -1,5 +1,7 @@
 <?php
 
+require 'connect.php';
+
 require 'checklist.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
