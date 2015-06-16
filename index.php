@@ -4,21 +4,24 @@ if (!isset($_SESSION)) {
 
 session_start(); 
 
+$_SESSION['list'] = array();
+
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-$list = array();
 
-$list[] = "Take Out Garbage";
-$list[] = "Pick Up Kids";
-$list[] = "Get Groceries";
 
 if ( $method === 'POST') {
-	$list[] = $_POST['itemtoadd'];
+
+$items = $_POST;
+
+foreach ($items as $item){
+		$_SESSION['list'][] = $item;
+	}
+
 }
 
-$_SESSION['list'] = $list;
 
 ?>
 
