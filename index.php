@@ -1,14 +1,24 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {
 
-require 'checklist.php';
+session_start(); 
+
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
+
+$list = array();
+
+$list[] = "Take Out Garbage";
+$list[] = "Pick Up Kids";
+$list[] = "Get Groceries";
 
 if ( $method === 'POST') {
 	$list[] = $_POST['itemtoadd'];
 }
+
+$_SESSION['list'] = $list;
 
 ?>
 
@@ -19,8 +29,6 @@ if ( $method === 'POST') {
 			echo "<input type='checkbox' name='checklist' value='" . $item . "'> " . $item . "<br>";
 		} 
 	?>
-	
-	<input type="submit" value="submit">
 </form>
 
 <form method="post" action="index.php">
