@@ -1,9 +1,13 @@
 <?php
 
+session_start();
+
 $list = array();
 
-$list[] = "item1";
-$list[] = "item2";
-$list[] = "item3";
+$list[] = "Take Out Garbage";
+$list[] = "Pick Up Kids";
+$list[] = "Get Groceries";
+
+$_SESSION["list"] = $list;
 
 ?>

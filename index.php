@@ -1,6 +1,6 @@
 <?php
 
-require 'connect.php';
+session_start();
 
 require 'checklist.php';
 
@@ -10,14 +10,12 @@ if ( $method === 'POST') {
 	$list[] = $_POST['itemtoadd'];
 }
 
-var_dump($list, $_POST);
-
 ?>
 
 <h1>Checklist</h1>
 <form method="post" action="index.php">
 	<?php 
-		foreach ($list as $item) {
+		foreach ($_SESSION["list"] as $item) {
 			echo "<input type='checkbox' name='checklist' value='" . $item . "'> " . $item . "<br>";
 		} 
 	?>
