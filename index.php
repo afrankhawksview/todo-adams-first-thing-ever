@@ -1,36 +1,36 @@
 <?php
 
 if (!isset($_SESSION)) {
-
-session_start(); 
-
-$_SESSION['list'] = array();
-
+session_start();
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-
-
 if ( $method === 'POST') {
 
-$items = $_POST;
-
-foreach ($items as $item){
-		$_SESSION['list'][] = $item;
-	}
-
+		$list[] = $_POST["itemtoadd"];
 }
 
+$list = array();
+
+$list[] = "Take Out Garbage";
+$list[] = "Pick Up Kids";
+$list[] = "Get Groceries";
+
+if ( $method === 'POST') {
+	$list[] = $_POST['itemtoadd'];
+}
+
+$_SESSION['list'] = $list;
 
 ?>
 
 <h1>Checklist</h1>
 <form method="post" action="index.php">
-	<?php 
-		foreach ($_SESSION["list"] as $item) {
+	<?php
+		foreach ($list as $item) {
 			echo "<input type='checkbox' name='checklist' value='" . $item . "'> " . $item . "<br>";
-		} 
+		}
 	?>
 </form>
 
