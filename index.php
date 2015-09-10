@@ -1,40 +1,32 @@
-<?php
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To Do</title>
+	<link rel="stylesheet" href="styles/style.css">
+	<!-- Jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-if (!isset($_SESSION)) {
-session_start();
-}
+	<!-- App -->
+	<script src="scripts/todo.js"></script>
+</head>
+<body>
+	<div class="app">
+		<h1>To Do</h1>
 
-$method = $_SERVER['REQUEST_METHOD'];
-
-if ( $method === 'POST') {
-
-		$list[] = $_POST["itemtoadd"];
-}
-
-$list = array();
-
-$list[] = "Take Out Garbage";
-$list[] = "Pick Up Kids";
-$list[] = "Get Groceries";
-
-if ( $method === 'POST') {
-	$list[] = $_POST['itemtoadd'];
-}
-
-$_SESSION['list'] = $list;
-
-?>
-
-<h1>Checklist</h1>
-<form method="post" action="index.php">
-	<?php
-		foreach ($list as $item) {
-			echo "<input type='checkbox' name='checklist' value='" . $item . "'> " . $item . "<br>";
-		}
-	?>
-</form>
-
-<form method="post" action="index.php">
-	<input type="text" name="itemtoadd">
-	<input type="submit" value="Add Item">
-</form>
+		<form action="#">
+			<div class="list">
+			</div>
+			<div>
+				<label for="name">Text Input:</label>
+				<input type="text" name="thingToDo" id="thingToDo"/>
+			</div>
+			<div>
+				<input type="submit" value="Update" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>
