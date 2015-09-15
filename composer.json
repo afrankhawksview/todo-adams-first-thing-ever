@@ -1,0 +1,12 @@
+{
+  "name": "root/todo",
+    "authors": [
+        {
+            "name": "Adam Frank",
+            "email": "adam@webadamfrank.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^2.6"
+    }
+}
